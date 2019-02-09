@@ -1,0 +1,23 @@
+{
+  "name": "webtodolist",
+  "version": "0.0.1",
+  "description": "ToDo List Exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrSankofa/webToDoList.git"
+  },
+  "author": "Brett Cunningham II",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrSankofa/webToDoList/issues"
+  },
+  "homepage": "https://github.com/MrSankofa/webToDoList#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0"
+  }
+}
