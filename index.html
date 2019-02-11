@@ -3,23 +3,58 @@
 	<head>
 		<meta charset= "utf-8">
 		<title> Brett's Website </title>
-		<script src="jquery.js"></script>
+		<script src="js/jquery.js"></script>
 		<link href="styles/main.css" type="text/css" rel="stylesheet"></script>
 	</head>
 	<!-- Body -->
 	<body>
 		<!-- Content Section -->
 		<header>
-			<code>&#60;Bretts header&#62;</code>
+			<titlebar>Just To Do It</titlebar>
+			<form>
+				<input type="text" name="AddToDo" id="AddToDo" placeholder="Type To Do Here Then Press Add In Category">
+			</form> 
 		</header>
 		
-		<section>
-			<code>&#60;section&#62; <br> float: left;</code>
+		<section class="row">
+			<div class="grid">
+				
+					<div class="col-1-3">
+						<div class="toDoList" id="general">
+							<h1>General</h1>
+							<content>
+								<ul id="generalContent">
+								
+								</ul>
+							</content>
+							<button id="generalButton"> add </button>
+						</div>
+					</div>
+					<div class="col-1-3">
+						<div class="toDoList" id="programming">
+							<h1>Programming</h1>
+							<content id="programmingContent"></content>
+							<button id="programmingButton"> add </button>
+						</div>
+					</div>
+					<div class="col-1-3">
+						 <div class="toDoList" id="nextUp">
+							<h1>Next Up</h1>
+							<content id="nextUpContent"></content>
+							<button id="nextUpButton"> add </button>
+						</div>
+					</div>
+					
+			</div>
 		</section>
 		
 		<footer>
 			<code>&#60;footer&#62; <br> clear: both;</code>
 		</footer>
+		<p>First Paragraph</p>
+		<p>Second Paragraph</p>
+		<p>Yet one more Paragraph</p>
+		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>
 
