@@ -1,56 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-/*
-     ========================================
-     Resets
-     ========================================
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-     margin: 0;
-     padding: 0;
-     border: 0;
-     font-size: 100%;
-     font: inherit;
-     vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-     display: block;
-}
-body {
-     line-height: 1;
-}
-ol, ul {
-     list-style: none;
-}
-blockquote, q {
-     quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-     content: '';
-     content: none;
-}
-table {
-     border-collapse: collapse;
-     border-spacing: 0;
-}
-
 /*
   ========================================
   Rows
@@ -94,65 +41,89 @@ content: "";
   Custom styles
   ========================================
 */
-section,
-footer {
-     margin: 0 10.5% 24px 10.5%;
+/*6. */ /*8. for padding to compensate for the header and the list we want to show*/
+body {
+     background: #CCCCCC;
+     padding-top: 80px;
 }
 
-footer {
-     clear: both;
-     margin-bottom: 0;
+/*4. Add the link first*/
+body, input, button {
+     font-family: 'Roboto', san-serif;
 }
-code {
-     background: #555555;
-     border-radius: 6px;
-     border-color: black;
-     border-width: 5px;
-     border-style: solid;
+
+/* 2. This positions the header to be fixed at the top of the page*/
+header {
+     width: 100%;
+     height: 80px;
+     
+     position: fixed;
+     padding: 15px; /*This is so the contents don't show up in the top left hand corner of the element*/
+     top: 0; /* sets the top edge of the positioned header element 0px down from the top edge of its nearest positioned ancestor (body)*/
+     left:0; /* Sets the left edged of the positioned header element to 0px from the left edge of its nearest positioned ancestor*/
+     z-index: 5; /* this specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order (only works on positioned elements*/
+     
+     background: #25b99a;
+     box-shadow: 0px 7px 8px rgba(44, 62, 80, 0.15); /*h offset, v offset, blue, color and transparency*/
+     border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+}
+/*3*/
+header input {
+     width: 100%;
+     height: 50px;
+     
+     float: left; /*float the textbox left and the button right*/
+     padding-right: 60px; /*To accommodate for the button*/
      color: #fff;
-     display: block;
-     font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
-     padding: 24px 15px;
-     text-align: center;
+     background: rgba(255,255,255, 0.5);
+     text-indent: 20px; /*The purpose of using this instead of just the padding is because of overflow of characters*/
+     border-radius: 5px 25px 25px 5px;
+     border: 0px;
+     box-shadow: none;
+     outline: none;
+
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     -ms-appearance: none;
+     -o-appearance: none;
+}
+/*3*/ /*find out what the :: and [] does*/
+header input::-webkit-input-placeholder {
+     font-size: 20px;
 }
 
-titlebar {
-     background: #555555;
-     display: block;
-     padding: 10px;
-     text-align: right;
-     color: #fff;
-     font-family: monospace;
-     font-size: 15px;
+/*9*/
+.container {
+  width: 100%;
+  float: left;
+  padding: 15px;
 }
 
-input[ type=text] {
-     width: 15%;
-     padding: 12px 20px;
-     margin-left: 10.5%;
+ul.todo {
+     width: 100%;
+     float: left;
 }
 
-#general {
-     background-color: #708c4c;
-     color: white;
-     border-radius: 2px;
+ul.todo li {
+     width: 100%;
+     min-height: 50px; /*For mobile so that the text br into the li section for each line of text*/
+     float: left;
+     font-size: 20px;
+     font-weight: 500;
+     color: #444;
+     line-height: 21px; /*Had to change the padding because of this*/
+
+     background: #fff;
+     border-radius: 5px;
+     position: relative; /*child has absolute so this has to be relative (see buttons)*/
+     padding: 15px 200px 15px 15px; /*so that the to do activity breaks before it hits the buttons (see buttons)*/
+     box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+     margin: 0 0 10px 0;
 }
 
-#programming {
-     background-color: #84bcd5;
-     color: black;
-     border-radius: 2px;
-}
-
-#nextUp {
-     background-color: #cc9966;
-     color: black;
-     border-radius: 2px;
-}
-
-#generalContent {
-     background-color: white;
-     color: black;
+ul.todo li last-of-type {
+     margin: 0;
 }
 
 /*
@@ -160,10 +131,7 @@ input[ type=text] {
      Typography
      ========================================
 */
-h1 {
-     font-family: monospace;
-     font-size: 24px;
-}
+
 
 
 /*
@@ -171,26 +139,112 @@ h1 {
      Buttons
      ========================================
 */
+/*7. */
+header button {
+     width: 50px;
+     height: 50px;
+     position: absolute;
+     top: 15px;
+     right: 15px; /*This plus top plus position: absolute allowed me to over lap on the input*/
+     z-index: 2;
+     border-radius: 25px;
+     background: #fff;
+     border: 0px;
+     box-shadow: none;
+     outline: none;
+     cursor: pointer;
 
-input[type=submit] {
-     background-color: grey;
-     border-radius: 5px;
-     margin: 8px;
-     padding: 8px 15px;
-     font: monospace;
-     font-size: 14px;
-     font-weight: bold;
-     color: black;
-     border-width: 3px;
-     border-color: black;
+
+     -webkit-appearance: none; /*Removes default settings*/
+     -moz-appearance: none;
+     -ms-appearance: none;
+     -o-appearance: none;
+}
+/*7. */
+header button svg {
+     width: 35px;
+     height: 35px;
+}
+/*7. */
+header button svg .fill {
+     fill:#25b899;
 }
 
-button {
-     padding: 5px;
-     background-color: #666666;
-     border-radius: 5px;
-     width: 100%;
-     font-family: monospace;
-     font-size: 20px;
+/*10*/ /*this class contains both button elements we want to manipulate*/
+ul.todo li .removeCompleteButtons {
+     width: 200px; /*both buttons combined*/
+     height: 50px;
+     position: absolute; /*parent will need to have relative to have the buttons align*/
+     top: 0; /*this with the positioning allows these two elements to overlap and since the parent has float left, the child will overlap right*/
+     right: 0;
 }
+
+ul.todo li .removeCompleteButtons button {
+     width: 100px;
+     height: 50px;
+     float: left;
+     background: none;
+     border: 0px;
+     box-shadow: none;
+     outline: none;
+     position: relative;
+     cursor: pointer;
+
+     -webkit-appearance: none; /*Removes default settings on buttons*/
+     -moz-appearance: none;
+     -ms-appearance: none;
+     -o-appearance: none;
+}
+ul.todo li .removeCompleteButtons button:last-of-type:before {
+  content: '';
+  width: 2px;
+  height: 30px;
+  background:#25b899;
+
+  position: absolute; /*parent will need to have relative to have the buttons align*/
+  top: 10px;
+  left: 0;
+}
+
+ul.todo li .removeCompleteButtons button svg {
+     width: 30px;
+     height: 30px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     margin: -15px 0 0 -15px;
+}
+
+ul.todo li .removeCompleteButtons button.remove svg .fill {
+     -webkit-transition: fill 0.2s ease;
+     -moz-transition: fill 0.2s ease;
+     -ms-transition: fill 0.2s ease;
+     -o-transition: fill 0.2s ease;
+     transition: fill 0.2s ease;
+}
+
+ul.todo li .removeCompleteButtons button.remove svg .fill {
+     fill: #c0cecb; 
+}
+
+ul.todo li .removeCompleteButtons button.remove:hover svg .fill {
+     fill: #e85656;
+}
+
+ul.todo li .removeCompleteButtons button.complete svg .fill {
+     -webkit-transition: fill 0.2s ease;
+     -moz-transition: fill 0.2s ease;
+     -ms-transition: fill 0.2s ease;
+     -o-transition: fill 0.2s ease;
+     transition: fill 0.2s ease;
+}
+
+ul.todo li .removeCompleteButtons button.complete svg .fill {
+     fill: #c0cecb; 
+}
+
+ul.todo li .removeCompleteButtons button.complete:hover svg .fill {
+     fill: #25b899;
+}
+
 
