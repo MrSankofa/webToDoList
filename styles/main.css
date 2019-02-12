@@ -4,7 +4,7 @@
   ========================================
 */
 .row {
-
+     margin-top: 20px;
 }
 
 /*
@@ -26,7 +26,6 @@ content: "";
      margin: 0px 5px;
      width: 32%;
      text-align: center;
-     background: #eaeaed;
      border-radius: 2px;
      clear: both;
      *zoom: 1;
@@ -63,7 +62,7 @@ header {
      left:0; /* Sets the left edged of the positioned header element to 0px from the left edge of its nearest positioned ancestor*/
      z-index: 5; /* this specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order (only works on positioned elements*/
      
-     background: #25b99a;
+     background: #2b080b;
      box-shadow: 0px 7px 8px rgba(44, 62, 80, 0.15); /*h offset, v offset, blue, color and transparency*/
      border-bottom-left-radius: 20px;
      border-bottom-right-radius: 20px;
@@ -91,13 +90,13 @@ header input {
 /*3*/ /*find out what the :: and [] does*/
 header input::-webkit-input-placeholder {
      font-size: 20px;
+     color: #fff;
 }
 
 /*9*/
 .container {
   width: 100%;
   float: left;
-  padding: 15px;
 }
 
 ul.todo {
@@ -115,15 +114,52 @@ ul.todo li {
      line-height: 21px; /*Had to change the padding because of this*/
 
      background: #fff;
-     border-radius: 5px;
      position: relative; /*child has absolute so this has to be relative (see buttons)*/
      padding: 15px 200px 15px 15px; /*so that the to do activity breaks before it hits the buttons (see buttons)*/
      box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
-     margin: 0 0 10px 0;
+     margin: 0 0 5px 0;
 }
+
+ul.todo li:first-child{
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+}
+
+ul.todo li:nth-child(n+2) {
+     border-radius: 8px;
+}
+
+ul.todo li:last-child{
+     border-radius: 8px 8px 0 0;
+}
+
 
 ul.todo li last-of-type {
      margin: 0;
+}
+
+.toDoList {
+     width: 100%;
+     height: 80px;
+     
+     position: relative;
+     padding: 15px; /*This is so the contents don't show up in the top left hand corner of the element*/
+     top: 0; /* sets the top edge of the positioned header element 0px down from the top edge of its nearest positioned ancestor (body)*/
+     left:0; /* Sets the left edged of the positioned header element to 0px from the left edge of its nearest positioned ancestor*/
+     z-index: 2; /* this specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order (only works on positioned elements*/
+     
+     box-shadow: 0px 7px 8px rgba(44, 62, 80, 0.15); /*h offset, v offset, blue, color and transparency*/
+     border-top-left-radius: 20px;
+     border-top-right-radius: 20px;
+}
+#general.toDoList {
+     background: #7db825; 
+}
+#programming.toDoList {
+     background: #b88c25;    
+}
+#nextUp.toDoList {
+     background: #b84225;
 }
 
 /*
@@ -167,7 +203,7 @@ header button svg {
 }
 /*7. */
 header button svg .fill {
-     fill:#25b899;
+     fill:#2b080b;
 }
 
 /*10*/ /*this class contains both button elements we want to manipulate*/
@@ -246,5 +282,3 @@ ul.todo li .removeCompleteButtons button.complete svg .fill {
 ul.todo li .removeCompleteButtons button.complete:hover svg .fill {
      fill: #25b899;
 }
-
-
